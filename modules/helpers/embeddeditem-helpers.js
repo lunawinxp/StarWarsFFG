@@ -316,15 +316,19 @@ export default class EmbeddedItemHelpers {
   }
 
   // totally not ripped from phind telling me how to do this
-  static findKeysIncludingStringRecursively(obj, str) {
+  static findKeysIncludingStringRecursively(obj, str, seen = new WeakSet()) {
     let keys = [];
+    if (obj === null || typeof obj !== 'object') return keys;
+    if (seen.has(obj)) return keys;
+    seen.add(obj);
+  
     for (let key in obj) {
       if (obj.hasOwnProperty(key)) {
         if (key.includes(str)) {
           keys.push(key);
         }
-        if (typeof obj[key] === 'object') {
-          keys = keys.concat(EmbeddedItemHelpers.findKeysIncludingStringRecursively(obj[key], str));
+        if (typeof obj[key] === 'object' && obj[key] !== null) {
+          keys = keys.concat(EmbeddedItemHelpers.findKeysIncludingStringRecursively(obj[key], str, seen));
         }
       }
     }

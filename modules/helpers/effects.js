@@ -8,7 +8,8 @@ export default class EffectHelpers {
 
   // Map effects from EmbeddedCollection
   static transformEffects(originalEffect, _iterator, _effects) {
-    let effect = structuredClone(originalEffect);
+    let effect = originalEffect.toObject();
+    effect.changes ??= [];
 
     // Copy properties we need from the prototype
     effect.id = originalEffect.id;

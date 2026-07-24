@@ -821,20 +821,14 @@ export class CombatFFG extends Combat {
         let defeated = claimant.isDefeated;
 
         const effects = new Set();
-        if (claimant.token) {
-          claimant.token.effects.forEach((e) => effects.add(e))
-          if (claimant.token.overlayEffect) {
-            effects.add(claimant.token.overlayEffect);
-          }
-        }
 
         if (claimant.actor) {
           if (claimant.isDefeated) {
             defeated = true;
           }
           for (const effect of claimant.actor.temporaryEffects) {
-            if (effect?.icon) {
-              effects.add(effect.icon);
+            if (effect?.img) {
+              effects.add(effect.img);
             }
           }
         }
