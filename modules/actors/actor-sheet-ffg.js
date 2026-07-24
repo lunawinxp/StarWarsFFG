@@ -1619,7 +1619,7 @@ export class ActorSheetFFG extends foundry.appv1.sheets.ActorSheet {
     const html = await foundry.applications.handlebars.renderTemplate(template, { itemDetails, item });
 
     const messageData = {
-      user: game.user.id,
+      author: game.user.id,
       type: CONST.CHAT_MESSAGE_STYLES.OTHER,
       content: html,
       speaker: {
@@ -1649,7 +1649,7 @@ export class ActorSheetFFG extends foundry.appv1.sheets.ActorSheet {
     const html = await foundry.applications.handlebars.renderTemplate(template, { itemDetails, item });
 
     const messageData = {
-      user: game.user.id,
+      author: game.user.id,
       type: CONST.CHAT_MESSAGE_STYLES.OTHER,
       content: html,
       speaker: {

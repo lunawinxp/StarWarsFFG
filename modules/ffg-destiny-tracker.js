@@ -160,7 +160,7 @@ export default class DestinyTracker extends FormApplication {
       }
 
       ChatMessage.create({
-        user: game.user.id,
+        author: game.user.id,
         content: messageText,
       });
     });
@@ -307,7 +307,7 @@ export default class DestinyTracker extends FormApplication {
 
     const roll = new game.ffg.RollFFG(pool.renderDiceExpression());
     await roll.toMessage({
-      user: game.user.id,
+      author: game.user.id,
       flavor: `${game.i18n.localize("SWFFG.Rolling")} ${game.i18n.localize("SWFFG.DestinyPool")}...`,
     });
 

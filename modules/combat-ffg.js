@@ -185,10 +185,10 @@ export class CombatFFG extends Combat {
       } else {
         // Make sure we are dealing with an array of ids
         ids = typeof ids === "string" ? [ids] : ids;
-        const c = initiative.getCombatantByToken(
+        const c = initiative.getCombatantsByToken(
             initiative.combatants.map(combatant => combatant)
             .filter(combatantData => combatantData._id == ids[0])[0]
-            .tokenId);
+            .tokenId)[0];
         //const data = c.actor.system;
         const data = _findActorForInitiative(c);
         whosInitiative = c.actor.name;
@@ -255,10 +255,10 @@ export class CombatFFG extends Combat {
                 async (results, id, i) => {
                   let [updates, messages] = await results;
                   // Get Combatant data
-                  const c = initiative.getCombatantByToken(
+                  const c = initiative.getCombatantsByToken(
                     initiative.combatants.map(combatant => combatant)
                     .filter(combatantData => combatantData._id == id)[0]
-                    .tokenId);
+                    .tokenId)[0];
                   if (!c || !c.isOwner) return resolve(results);
 
                   // Detemine Formula

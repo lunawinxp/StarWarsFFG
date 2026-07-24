@@ -245,7 +245,7 @@ export class RollFFG extends Roll {
   async render(chatOptions = {}) {
     chatOptions = foundry.utils.mergeObject(
       {
-        user: game.user.id,
+        author: game.user.id,
         flavor: null,
         template: this.constructor.CHAT_TEMPLATE,
         blind: false,
@@ -357,7 +357,7 @@ export class RollFFG extends Roll {
     // Prepare chat data
     messageData = foundry.utils.mergeObject(
       {
-        user: game.user.id,
+        author: game.user.id,
         content: this.total,
         sound: CONFIG.sounds.dice,
       },

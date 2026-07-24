@@ -285,7 +285,7 @@ export class GroupManager extends FormApplication {
     let filteredTable = table.filter((entry) => entry.rangeStart <= r.total && r.total <= entry.rangeEnd);
     let tableResult = filteredTable?.length ? `${filteredTable[0].type} ${type} ${game.i18n.localize("SWFFG.Triggered")} ${game.i18n.localize("SWFFG.For")} @Actor[${filteredTable[0].playerId}]{${filteredTable[0].name}}` : `${game.i18n.localize("SWFFG.OptionValueNo")} ${type} ${game.i18n.localize("SWFFG.Triggered")}`;
     let messageOptions = {
-      user: game.user.id,
+      author: game.user.id,
       content: tableResult,
     };
     if (game.settings.get("starwarsffg", "privateTriggers")) {

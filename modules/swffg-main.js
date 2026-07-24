@@ -1509,7 +1509,7 @@ Hooks.once("ready", async () => {
         CONFIG.FFG.DestinyGM = game.user.id;
 
         ChatMessage.create({
-          user: game.user.id,
+          author: game.user.id,
           content: messageText,
         });
       },
